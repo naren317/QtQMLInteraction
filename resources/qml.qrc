@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qmls/main.qml</file>
+        <file>qmls/Launch_Screen.qml</file>
+        <file>qmls/+android/Launch_Screen.qml</file>
+    </qresource>
+</RCC>
