@@ -5,7 +5,10 @@
 #include <memory>
 #include "platform_header.hpp"
 #include "view_controller.hpp"
-
+#include "object_notifier.hpp"
+#include "observers.hpp"
+#include "observer_model_class.hpp"
+#include "launch_screen_controller.hpp"
 
 int main(int argc, char *argv[])
 {
@@ -18,8 +21,10 @@ int main(int argc, char *argv[])
     file_selector.setExtraSelectors(QStringList(platform));
     qml_files.setSelector(&file_selector);
 
-    auto instance = std::make_shared<ViewController>();
-    engine.rootContext()->setContextProperty("view_controller", instance.get());
+    ObserverModelClass model(&engine);
+    LaunchScreenController launch_screen(&engine);
+
+    engine.rootContext()->setContextProperty("view_controller", ViewController::getViewController().get());
 
     const QUrl url(QStringLiteral("qrc:/qmls/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,

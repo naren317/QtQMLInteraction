@@ -3,5 +3,8 @@
         <file>qmls/main.qml</file>
         <file>qmls/Launch_Screen.qml</file>
         <file>qmls/+android/Launch_Screen.qml</file>
+        <file>qmls/Observer_Pattern.qml</file>
+        <file>qmls/Visitor_Pattern.qml</file>
+        <file>qmls/Adapter_Pattern.qml</file>
     </qresource>
 </RCC>

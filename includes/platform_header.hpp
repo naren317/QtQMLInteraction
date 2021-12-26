@@ -1,7 +1,7 @@
 #ifndef __PlatformHeader__
 #define __PlatformHeader__
 
-#define platform "android"
+#define platform "windows"
 
 #ifndef platform
   #define platform "windows"

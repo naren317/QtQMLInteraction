@@ -1,24 +1,29 @@
 #include "view_controller.hpp"
-#include <QDebug>
 #include <QQmlEngine>
-#include <QJSEngine>
 #include <QStack>
-#include <QMap>
-#include <functional>
+
+QSharedPointer<ViewController> ViewController::m_view_controller = nullptr;
 
 struct ViewController::impl {
-
     QString qml_name;
-    QStack<ViewController::ViewIndex> screen_stack;
+    QStack<ViewControllerHelper::ViewIndex> screen_stack;
 };
 
-ViewController::ViewController() noexcept : pImpl(std::make_shared<impl>())
+ViewController::ViewController() noexcept : pImpl(new impl())
 {
-    qmlRegisterType<ViewController>("ViewController",1,0,"ViewController");
-    pushViewScreen(ViewIndex::Launch_Screen);
+    qmlRegisterType<ViewControllerHelper>("ViewControllerHelper", 1, 0, "ViewControllerHelper");
+    pushViewScreen(ViewControllerHelper::Launch_Screen);
 }
 
-QString ViewController::getQMLname() const
+QSharedPointer<ViewController> ViewController::getViewController()
+{
+    if ( !m_view_controller.get() )
+        m_view_controller.reset(new ViewController);
+
+    return m_view_controller;
+}
+
+const QString& ViewController::getQMLname() const
 {
     return pImpl->qml_name;
 }
@@ -29,13 +34,13 @@ void ViewController::setQMLname(const QString& qml)
     emit qmlnameChanged();
 }
 
-void ViewController::pushViewScreen(ViewIndex screen_index)
+void ViewController::pushViewScreen(ViewControllerHelper::ViewIndex screen_index)
 {
     pImpl->screen_stack.push(screen_index);
     setQMLname(getIndexToScreen(pImpl->screen_stack.top()));
 }
 
-ViewController::ViewIndex ViewController::popViewScreen()
+ViewControllerHelper::ViewIndex ViewController::popViewScreen()
 {
     if(pImpl->screen_stack.size() > 1)
     {
@@ -45,7 +50,7 @@ ViewController::ViewIndex ViewController::popViewScreen()
     return pImpl->screen_stack.top();
 }
 
-QString ViewController::getIndexToScreen(ViewIndex screen_index)
+QString ViewController::getIndexToScreen(ViewControllerHelper::ViewIndex screen_index) const
 {
     return QVariant::fromValue(screen_index).toString().append(".qml");
 }
