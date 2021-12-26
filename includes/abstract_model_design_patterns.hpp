@@ -10,6 +10,7 @@ class AbstractModelDesignPatterns : public QObject
 
 public:
     AbstractModelDesignPatterns(QObject* parent = nullptr);
+    virtual ~AbstractModelDesignPatterns() = default;
     Q_INVOKABLE virtual void loadPattern() = 0;
 
 public slots:

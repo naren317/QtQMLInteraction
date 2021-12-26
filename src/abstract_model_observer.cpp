@@ -19,6 +19,3 @@ void AbstractModelObserver::setLabelName(const QString& label_name)
     this->label_name = label_name;
     emit labelNameChanged();
 }
-
-AbstractModelObserver::~AbstractModelObserver()
-{}

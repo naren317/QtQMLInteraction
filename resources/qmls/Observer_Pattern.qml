@@ -13,7 +13,7 @@ Item {
             delegate: Rectangle {
                 id: view_element
                 height: view.height/5
-                width: view.width
+                width: view.width / view.count
                 color: "blue"
                 radius: height * 0.2
                 Text {

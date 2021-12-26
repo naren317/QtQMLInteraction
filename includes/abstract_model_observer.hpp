@@ -12,7 +12,7 @@ class AbstractModelObserver : public QObject
 public:
     explicit AbstractModelObserver(QObject *parent = nullptr, ObjectNotifier* notifier = nullptr);
     virtual void updateLabel() = 0;
-    virtual ~AbstractModelObserver();
+    virtual ~AbstractModelObserver() = default;
 
 public slots:
     const QString& getLabelName() const;
