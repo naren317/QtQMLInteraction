@@ -6,5 +6,7 @@
         <file>qmls/Observer_Pattern.qml</file>
         <file>qmls/Visitor_Pattern.qml</file>
         <file>qmls/Adapter_Pattern.qml</file>
+        <file>qmls/Helper_Module.qml</file>
+        <file>qmls/qmldir</file>
     </qresource>
 </RCC>

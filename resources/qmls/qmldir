@@ -1,0 +1,2 @@
+module HelperModule
+singleton Helper_Module 1.0 Helper_Module.qml

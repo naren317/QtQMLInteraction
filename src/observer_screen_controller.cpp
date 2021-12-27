@@ -1,12 +1,12 @@
-#include "observer_model_class.hpp"
+#include "observer_screen_controller.hpp"
 #include "observers.hpp"
 #include <QQmlContext>
 
-ObserverModelClass::ObserverModelClass(QQmlApplicationEngine* engine, QObject *parent) noexcept
+ObserverScreenController::ObserverScreenController(QQmlApplicationEngine* engine, QObject *parent) noexcept
     : QObject(parent)
     , m_notifier(engine)
 {
-    engine->rootContext()->setContextProperty("observerModelInstance", this);
+    engine->rootContext()->setContextProperty("observer_model_instance", this);
     m_model << new FirstObserver(engine, &m_notifier)
             << new SecondObserver(engine, &m_notifier)
             << new ThirdObserver(engine, &m_notifier)
@@ -14,23 +14,18 @@ ObserverModelClass::ObserverModelClass(QQmlApplicationEngine* engine, QObject *p
     modelChanged();
 }
 
-QList<QObject*> ObserverModelClass::getModel() const
+QList<QObject*> ObserverScreenController::getModel() const
 {
     return m_model;
 }
 
-void ObserverModelClass::setModel(const QList<QObject*>& model)
+void ObserverScreenController::setModel(const QList<QObject*>& model)
 {
     this->m_model = model;
     modelChanged();
 }
 
-void ObserverModelClass::updateModel()
+void ObserverScreenController::updateModel()
 {
     m_notifier.update();
-}
-
-ObserverModelClass::~ObserverModelClass()
-{
-    qDeleteAll(m_model);
 }

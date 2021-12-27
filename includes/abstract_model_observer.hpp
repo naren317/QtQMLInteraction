@@ -2,7 +2,7 @@
 #define ABSTRACT_MODEL_OBSERVER_HPP
 
 #include <QObject>
-
+#include <QDebug>
 class ObjectNotifier;
 class AbstractModelObserver : public QObject
 {
@@ -12,7 +12,6 @@ class AbstractModelObserver : public QObject
 public:
     explicit AbstractModelObserver(QObject *parent = nullptr, ObjectNotifier* notifier = nullptr);
     virtual void updateLabel() = 0;
-    virtual ~AbstractModelObserver() = default;
 
 public slots:
     const QString& getLabelName() const;

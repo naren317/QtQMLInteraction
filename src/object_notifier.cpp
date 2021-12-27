@@ -4,7 +4,7 @@
 
 ObjectNotifier::ObjectNotifier(QQmlApplicationEngine* engine, QObject *parent) : QObject(parent)
 {
-    engine->rootContext()->setContextProperty("object_notifier", this);
+   engine->rootContext()->setContextProperty("object_notifier", this);
 }
 
 void ObjectNotifier::add_observer(AbstractModelObserver* object)
@@ -18,4 +18,9 @@ void ObjectNotifier::update()
     {
         it->updateLabel();
     }
+}
+
+ObjectNotifier::~ObjectNotifier()
+{
+    qDeleteAll(observer_list);
 }

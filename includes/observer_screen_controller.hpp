@@ -7,14 +7,13 @@
 #include <QQmlApplicationEngine>
 #include <QVector>
 
-class ObserverModelClass : public QObject
+class ObserverScreenController : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QList<QObject*> model READ getModel WRITE setModel NOTIFY modelChanged)
 
 public:
-    explicit ObserverModelClass(QQmlApplicationEngine* engine = nullptr, QObject *parent = nullptr) noexcept;
-    ~ObserverModelClass();
+    explicit ObserverScreenController(QQmlApplicationEngine* engine = nullptr, QObject *parent = nullptr) noexcept;
 
 public slots:
     QList<QObject*> getModel() const;

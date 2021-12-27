@@ -14,6 +14,7 @@ public:
     void add_observer(AbstractModelObserver* object);
 
     Q_INVOKABLE void update();
+    ~ObjectNotifier();
 
 private:
     QVector<AbstractModelObserver*> observer_list;
