@@ -34,6 +34,7 @@ public slots:
     void setQMLname(const QString& qml);
     void pushViewScreen(ViewControllerHelper::ViewIndex screen_index);
     ViewControllerHelper::ViewIndex popViewScreen();
+    ViewControllerHelper::ViewIndex getCurrentViewIndex() const;
 
 private:
     QString getIndexToScreen(ViewControllerHelper::ViewIndex screen_index) const;

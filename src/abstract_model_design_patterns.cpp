@@ -4,7 +4,7 @@ AbstractModelDesignPatterns::AbstractModelDesignPatterns(QObject* parent) : QObj
 {
 }
 
-QString AbstractModelDesignPatterns::getDesignName() const
+const QString& AbstractModelDesignPatterns::getDesignName() const
 {
     return design_name;
 }

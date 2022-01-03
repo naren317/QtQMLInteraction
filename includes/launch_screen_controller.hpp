@@ -14,7 +14,7 @@ public:
     LaunchScreenController(QQmlApplicationEngine* engine, QObject* parent = nullptr);
 
 public slots:
-    QList<QObject*> getLaunchScreenModel() const;
+    const QList<QObject*>& getLaunchScreenModel() const;
     void setLaunchScreenModel(const QList<QObject*> model);
 
 signals:

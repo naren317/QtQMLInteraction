@@ -13,7 +13,7 @@ LaunchScreenController::LaunchScreenController(QQmlApplicationEngine* engine, QO
     modelChanged();
 }
 
-QList<QObject*> LaunchScreenController::getLaunchScreenModel() const
+const QList<QObject*>& LaunchScreenController::getLaunchScreenModel() const
 {
     return m_model;
 }

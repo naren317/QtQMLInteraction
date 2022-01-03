@@ -54,3 +54,9 @@ QString ViewController::getIndexToScreen(ViewControllerHelper::ViewIndex screen_
 {
     return QVariant::fromValue(screen_index).toString().append(".qml");
 }
+
+
+ViewControllerHelper::ViewIndex ViewController::getCurrentViewIndex() const
+{
+    return pImpl->screen_stack.top();
+}

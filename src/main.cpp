@@ -5,10 +5,9 @@
 #include <memory>
 #include "platform_header.hpp"
 #include "view_controller.hpp"
-#include "object_notifier.hpp"
-#include "observers.hpp"
 #include "observer_screen_controller.hpp"
 #include "launch_screen_controller.hpp"
+#include "visitor_screen_controller.hpp"
 
 int main(int argc, char *argv[])
 {
@@ -23,6 +22,7 @@ int main(int argc, char *argv[])
 
     ObserverScreenController model(&engine);
     LaunchScreenController launch_screen(&engine);
+    VisitorScreenController visitor_screen(&engine);
 
     engine.rootContext()->setContextProperty("view_controller", ViewController::getViewController().get());
 

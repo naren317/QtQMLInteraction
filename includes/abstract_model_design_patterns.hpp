@@ -14,7 +14,7 @@ public:
     Q_INVOKABLE virtual void loadPattern() = 0;
 
 public slots:
-    QString getDesignName() const;
+    const QString& getDesignName() const;
     void setDesignName(const QString& name);
 
 signals:

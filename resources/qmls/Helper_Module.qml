@@ -7,17 +7,24 @@ QtObject {
     property var property_map : {
 
         "launch_screen" : {
-        "color" : {
-        "launch_screen_bg"          :   launch_screen_bg,
-        "launch_screen_cell_color"  :   launch_screen_cell_color
-        },
-        "font_size" : 10},
+            "color" : {
+                "launch_screen_bg"          :   launch_screen_bg,
+                "launch_screen_cell_color"  :   launch_screen_cell_color,
+            },
+            "font_size" : 10},
 
         "observer_pattern" : {
-        "color" : {
-        "observer_pattern_bg"       :    observer_pattern_bg
+            "color" : {
+                "observer_pattern_bg"       :    observer_pattern_bg
             },
-        "font_size" : 20
+            "font_size" : 20
+        },
+
+        "visitor_pattern" : {
+            "color" : {
+                "visitor_pattern_button_bg" :    visitor_pattern_button_bg
+            },
+            "font_size" : 20
         }
 
     }
@@ -42,5 +49,13 @@ QtObject {
         GradientStop {position: 0.5; color: "#FFA67B"}
         GradientStop {position: 0.8; color: "#FF7B3C"}
         GradientStop {position: 1.0; color: "#F24F00"}
+    }
+
+    property var visitor_pattern_button_bg : Gradient {
+        GradientStop {position: 0.0; color: "#FBFADF"}
+        GradientStop {position: 0.3; color: "#F4F1B7"}
+        GradientStop {position: 0.5; color: "#F0EC95"}
+        GradientStop {position: 0.8; color: "#EAE36F"}
+        GradientStop {position: 1.0; color: "#E4DD49"}
     }
 }

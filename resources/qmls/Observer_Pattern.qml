@@ -11,13 +11,13 @@ Item {
             anchors.fill: parent
             orientation: ListView.Horizontal
             id: view
-            model: observer_model_instance.model
+            model: observer_screen_controller.observer_model
 
             delegate: Rectangle {
                 id: view_element
                 height: view.height/5
                 width: view.width / view.count
-                color: "blue"
+                color: "#14CCF3"
                 border.color: "#00FF40"
                 border.width: parent.width * 0.01
                 radius: height * 0.2
@@ -45,7 +45,7 @@ Item {
             height: view.height/5
             width: view.width * 0.5
             anchors.centerIn: parent
-            onClicked: observer_model_instance.updateModel()
+            onClicked: observer_screen_controller.updateModel()
             background: Rectangle {
                 height: view.height/5
                 width: update_button.width

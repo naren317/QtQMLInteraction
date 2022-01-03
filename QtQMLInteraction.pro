@@ -11,30 +11,30 @@ CONFIG += c++17
 HEADERS += \
     includes/abstract_model_design_patterns.hpp \
     includes/abstract_model_observer.hpp \
+    includes/abstract_model_visitor.hpp \
     includes/adapter_design_pattern.hpp \
     includes/launch_screen_controller.hpp \
-    includes/object_notifier.hpp \
     includes/observer_design_pattern.hpp \
     includes/observer_screen_controller.hpp \
-    includes/observers.hpp \
     includes/platform_header.hpp \
     includes/view_controller.hpp \
-    includes/visitor_design_pattern.hpp
+    includes/visitor_design_pattern.hpp \
+    includes/visitor_screen_controller.hpp
 
 INCLUDEPATH += includes \
 
 SOURCES += \
     src/abstract_model_design_patterns.cpp \
     src/abstract_model_observer.cpp \
+    src/abstract_model_visitor.cpp \
     src/adapter_design_pattern.cpp \
     src/launch_screen_controller.cpp \
     src/main.cpp \
-    src/object_notifier.cpp \
     src/observer_design_pattern.cpp \
     src/observer_screen_controller.cpp \
-    src/observers.cpp \
     src/view_controller.cpp \
-    src/visitor_design_pattern.cpp
+    src/visitor_design_pattern.cpp \
+    src/visitor_screen_controller.cpp
 
 RESOURCES += \
     resources/qml.qrc

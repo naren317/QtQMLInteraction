@@ -8,5 +8,7 @@
         <file>qmls/Adapter_Pattern.qml</file>
         <file>qmls/Helper_Module.qml</file>
         <file>qmls/qmldir</file>
+        <file>images/left-arrow.png</file>
+        <file>images/right-arrow.png</file>
     </qresource>
 </RCC>
