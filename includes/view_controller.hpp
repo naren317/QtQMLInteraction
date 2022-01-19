@@ -15,7 +15,9 @@ public:
         Home_Screen,
         Observer_Pattern,
         Visitor_Pattern,
-        Adapter_Pattern
+        Adapter_Pattern,
+        Strategy_Pattern,
+        Abstract_Factory_Pattern
     };
     Q_ENUM(ViewIndex)
 };

@@ -4,10 +4,10 @@ import QtQuick.Layouts 1.12
 import "."
 
 Item {
-
+    property int launch_screen: view_controller.getCurrentViewIndex()
     Rectangle {
         anchors.fill: parent
-        gradient: Helper_Module.property_map["launch_screen"]["color"]["launch_screen_bg"]
+        gradient: Helper_Module.property_map[launch_screen]["color"]["background"]
 
         Column {
             anchors.fill: parent
@@ -27,7 +27,7 @@ Item {
 
                 delegate: Rectangle {
                     id: view_element
-                    gradient: Helper_Module.property_map["launch_screen"]["color"]["launch_screen_cell_color"]
+                    gradient: Helper_Module.property_map[launch_screen]["color"]["launch_screen_cell_color"]
                     radius: height * 0.2
                     border.color: "red"
                     border.width: width  * 0.02
@@ -35,7 +35,7 @@ Item {
                         id: model_text
                         anchors.centerIn: parent
                         text: modelData.design_name
-                        font.pointSize: Helper_Module.property_map["launch_screen"]["font_size"]
+                        font.pointSize: Helper_Module.property_map[launch_screen]["font_size"]
                         width: implicitWidth
                         height: implicitHeight
                         font.bold: true

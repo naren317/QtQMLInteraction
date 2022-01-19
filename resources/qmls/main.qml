@@ -1,12 +1,14 @@
 import QtQuick 2.12
+import QtQml 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.12
 import ViewControllerHelper 1.0
 
 ApplicationWindow {
+    property int bottom_gradient: 0
     property bool navigator_visible: false
-    width: 640
-    height: 480
+    width: Screen.width * 0.6
+    height: width
     visible: true
     title: qsTr("Qt-QML with Design patterns")
     Loader
@@ -30,11 +32,7 @@ ApplicationWindow {
         width: parent.width
         height: parent.height - loader.height
         anchors.bottom: parent.bottom
-        gradient: Gradient {
-            GradientStop {position: 0.0; color: "#BBE3E1"}
-            GradientStop {position: 0.5; color: "#9AD6D2"}
-            GradientStop {position: 1.0; color: "#E3F4F3"}
-        }
+        color: Helper_Module.property_map[bottom_gradient]["color"]["bottom_bar"]
         Image {
             id: left_arrow
             source: "qrc:/images/left-arrow.png" // Courtesy https://www.freeiconspng.com/downloadimg/31756
@@ -65,5 +63,11 @@ ApplicationWindow {
             close.accepted = true
         else
             close.accepted = false
+    }
+    Connections {
+        target: view_controller
+        onQmlnameChanged: {
+            bottom_gradient = view_controller.getCurrentViewIndex()
+        }
     }
 }

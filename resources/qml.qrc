@@ -10,5 +10,7 @@
         <file>qmls/qmldir</file>
         <file>images/left-arrow.png</file>
         <file>images/right-arrow.png</file>
+        <file>qmls/Strategy_Pattern.qml</file>
+        <file>qmls/Abstract_Factory_Pattern.qml</file>
     </qresource>
 </RCC>

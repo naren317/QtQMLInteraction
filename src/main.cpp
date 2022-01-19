@@ -5,8 +5,8 @@
 #include <memory>
 #include "platform_header.hpp"
 #include "view_controller.hpp"
-#include "observer_screen_controller.hpp"
 #include "launch_screen_controller.hpp"
+#include "observer_screen_controller.hpp"
 #include "visitor_screen_controller.hpp"
 
 int main(int argc, char *argv[])

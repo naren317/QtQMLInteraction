@@ -1,7 +1,8 @@
 #include "abstract_model_design_patterns.hpp"
 
-AbstractModelDesignPatterns::AbstractModelDesignPatterns(QObject* parent) : QObject(parent)
+AbstractModelDesignPatterns::AbstractModelDesignPatterns(const QString& name, QObject* parent) : QObject(parent)
 {
+    setDesignName(name);
 }
 
 const QString& AbstractModelDesignPatterns::getDesignName() const

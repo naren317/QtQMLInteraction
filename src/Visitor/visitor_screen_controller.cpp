@@ -56,8 +56,8 @@ VisitorScreenController::VisitorScreenController(QQmlApplicationEngine* engine, 
     engine->rootContext()->setContextProperty("visitor_screen_controller", this);
 
     setModel(m_model << new AlgorithmFirst("")
-                     << new AlgorithmSecond("")
-                     << new AlgorithmThird(""));
+             << new AlgorithmSecond("")
+             << new AlgorithmThird(""));
 
     connect(&m_timer, &QTimer::timeout, this, &VisitorScreenController::onTimeOut);
     m_timer.setInterval(m_timeout_interval);
@@ -65,7 +65,9 @@ VisitorScreenController::VisitorScreenController(QQmlApplicationEngine* engine, 
 
 VisitorScreenController::~VisitorScreenController()
 {
-    m_timer.stop();
+    if(m_timer.isActive())
+        m_timer.stop();
+    disconnect(&m_timer, &QTimer::timeout, this, &VisitorScreenController::onTimeOut);
     qDeleteAll(m_model);
 }
 
@@ -73,7 +75,11 @@ void VisitorScreenController::onTimeOut()
 {
     static int index = 0;
     if(index == m_model.size())
-        index = 0;
+    {
+        if(m_timer.isActive())
+            m_timer.stop();
+        return;
+    }
     dynamic_cast<AbstractModelVisitor*>(m_model.at(index))->accept(&m_visitor);
     ++index;
 }

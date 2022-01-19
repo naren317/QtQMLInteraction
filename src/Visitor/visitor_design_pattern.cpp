@@ -1,10 +1,8 @@
 #include "visitor_design_pattern.hpp"
 #include "view_controller.hpp"
 
-VisitorDesignPattern::VisitorDesignPattern(const QString& name) : AbstractModelDesignPatterns()
-{
-    setDesignName(name);
-}
+VisitorDesignPattern::VisitorDesignPattern(const QString& name) : AbstractModelDesignPatterns(name)
+{}
 
 void VisitorDesignPattern::loadPattern()
 {

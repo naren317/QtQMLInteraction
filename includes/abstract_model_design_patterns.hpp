@@ -9,7 +9,7 @@ class AbstractModelDesignPatterns : public QObject
     Q_PROPERTY(QString design_name READ getDesignName WRITE setDesignName NOTIFY designNameChanged)
 
 public:
-    AbstractModelDesignPatterns(QObject* parent = nullptr);
+    AbstractModelDesignPatterns(const QString& name, QObject* parent = nullptr);
     virtual ~AbstractModelDesignPatterns() = default;
     Q_INVOKABLE virtual void loadPattern() = 0;
 

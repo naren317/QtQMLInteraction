@@ -3,16 +3,16 @@ import QtQuick.Controls 2.5
 import "."
 
 Item {
+    property int observer_pattern: view_controller.getCurrentViewIndex()
     Rectangle {
         anchors.fill: parent
-        gradient: Helper_Module.property_map["observer_pattern"]["color"]["observer_pattern_bg"]
+        gradient: Helper_Module.property_map[observer_pattern]["color"]["background"]
 
         ListView {
             anchors.fill: parent
             orientation: ListView.Horizontal
             id: view
             model: observer_screen_controller.observer_model
-
             delegate: Rectangle {
                 id: view_element
                 height: view.height/5
@@ -26,7 +26,7 @@ Item {
                     anchors.centerIn: parent
                     id: element_text
                     text: modelData.label_name
-                    font.pointSize: Helper_Module.property_map["observer_pattern"]["font_size"]
+                    font.pointSize: Helper_Module.property_map[observer_pattern]["font_size"]
                 }
 
                 Rectangle {
@@ -41,7 +41,7 @@ Item {
         Button {
             id: update_button
             text: qsTr("Click to update")
-            font.pointSize: Helper_Module.property_map["observer_pattern"]["font_size"]
+            font.pointSize: Helper_Module.property_map[observer_pattern]["font_size"]
             height: view.height/5
             width: view.width * 0.5
             anchors.centerIn: parent

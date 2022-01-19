@@ -9,38 +9,46 @@ CONFIG += c++17
 
 
 HEADERS += \
+    includes/Abstract_factory/abstract_factory_design_pattern.hpp \
+    includes/Observer/abstract_model_observer.hpp \
+    includes/Observer/observer_design_pattern.hpp \
+    includes/Observer/observer_screen_controller.hpp \
+    includes/Strategy/strategy_design_pattern.hpp \
+    includes/Visitor/abstract_model_visitor.hpp \
+    includes/Visitor/visitor_design_pattern.hpp \
+    includes/Visitor/visitor_screen_controller.hpp \
     includes/abstract_model_design_patterns.hpp \
-    includes/abstract_model_observer.hpp \
-    includes/abstract_model_visitor.hpp \
     includes/adapter_design_pattern.hpp \
     includes/launch_screen_controller.hpp \
-    includes/observer_design_pattern.hpp \
-    includes/observer_screen_controller.hpp \
     includes/platform_header.hpp \
-    includes/view_controller.hpp \
-    includes/visitor_design_pattern.hpp \
-    includes/visitor_screen_controller.hpp
+    includes/view_controller.hpp
 
 INCLUDEPATH += includes \
+               includes/Abstract_factory \
+               includes/Visitor \
+               includes/Observer \
+               includes/Strategy
 
 SOURCES += \
+    src/Abstract_factory/abstract_factory_design_pattern.cpp \
+    src/Observer/abstract_model_observer.cpp \
+    src/Observer/observer_design_pattern.cpp \
+    src/Observer/observer_screen_controller.cpp \
+    src/Strategy/strategy_design_pattern.cpp \
+    src/Visitor/abstract_model_visitor.cpp \
+    src/Visitor/visitor_design_pattern.cpp \
+    src/Visitor/visitor_screen_controller.cpp \
     src/abstract_model_design_patterns.cpp \
-    src/abstract_model_observer.cpp \
-    src/abstract_model_visitor.cpp \
     src/adapter_design_pattern.cpp \
     src/launch_screen_controller.cpp \
     src/main.cpp \
-    src/observer_design_pattern.cpp \
-    src/observer_screen_controller.cpp \
-    src/view_controller.cpp \
-    src/visitor_design_pattern.cpp \
-    src/visitor_screen_controller.cpp
+    src/view_controller.cpp
 
 RESOURCES += \
     resources/qml.qrc
 
 TRANSLATIONS += \
-    helper_files/TravelExpensesMobile_en_IN.ts
+    helper_files/QtQMLInteraction_en_IN.ts
 
 android {
 
